@@ -8,6 +8,7 @@ export default function Fileupload() {
   const [lin,setlink] = useState(false);
   const [id,setid] = useState("");
   const frontendlink = import.meta.env.VITE_Felink;
+  const backendlink = import.meta.env.VITE_Belink;
   function handleChange(e) {
     const selectedFiles = Array.from(e.target.files);
     setUpfiles(selectedFiles);
@@ -41,7 +42,7 @@ export default function Fileupload() {
 
   async function handleUpload() {
     try {
-      const response = await axios.post("http://localhost:3000/putlink", {
+      const response = await axios.post(backendlink+"/putlink", {
         files: files 
       });
 

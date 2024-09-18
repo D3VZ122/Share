@@ -5,10 +5,10 @@ export default function Fileget(props){
      const id = props.id;
      const [files,setfiles] = useState([]);
      var arr = [];
+     const backendlink = import.meta.env.VITE_Belink;
      useEffect(()=>{
          async function getdata(){
-         const ans = await axios.get("http://localhost:3000/getlink?id="+id);
-
+         const ans = await axios.get(backendlink+"/getlink?id="+id);
          for(var i=0;i<ans.data.data.length;i++){
           arr.push(false);
          }
