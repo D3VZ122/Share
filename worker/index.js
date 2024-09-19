@@ -1,3 +1,4 @@
+const express = require("express");
 const cron = require('node-cron');
 const { PrismaClient } = require("@prisma/client");
 const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3");
@@ -5,6 +6,7 @@ const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3");
 
 const db = new PrismaClient();
 
+const app = express();
 
 const s3Client= new S3Client({
   region:"ap-south-1",
@@ -78,3 +80,7 @@ async function init() {
 init();
 
 
+
+app.listen(3000,()=>{
+  console.log("App Listening on 3000");
+})
