@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 export default function Downloadpage() {
-    const { id } = useParams();
+    var { id } = useParams();
    const [link,setlink] = useState("");
     if (id === undefined) {
         return (
@@ -17,10 +17,10 @@ export default function Downloadpage() {
             <div>
               <h1 className="text-2xl font-bold">Download Files</h1>
             </div>
-            <input type='text' placeholder='hello' className='bg-gray-200 text-blue-400'onChange={()=>{
-                
+            <input type='text' placeholder='Paste Your Link here' className='bg-gray-200 text-blue-400'onChange={(e)=>{
+              setlink(e.target.value);
             }}/>
-            <a href='/download/2313'>click</a>
+            
           </div>
           </div>
           </div>
